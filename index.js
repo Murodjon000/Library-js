@@ -16,5 +16,5 @@ function Book(title = '', author = '', pages = '', read = false) {
 }
 
 function addBookToLibrary() {
-    // do stuff here
+
 }
