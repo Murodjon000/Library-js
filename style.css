@@ -25,7 +25,6 @@ form button {
     margin: 10px 0;
     border: none;
     background: white;
-    border-radius: 6px;
 }
 
 form button {
@@ -40,18 +39,19 @@ form button:hover {
     color: white;
 }
 
-.todo-container {
+.book-container {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.todo-list {
+
+.book-list {
     list-style: none;
     min-width: 30%;
 }
 
-.todo {
+.book {
     margin: 0.5rem;
     color: black;
     font-size: 1.5rem;
@@ -62,7 +62,7 @@ form button:hover {
     transition: all 0.5s ease;
 }
 
-.todo li {
+.book li {
     flex: 1;
 }
 
@@ -79,7 +79,7 @@ form button:hover {
   background-color: rgb(73, 204, 73);
 }
 
-.todo-item {
+.book-item {
     padding: 0rem 0.5rem;
 }
 
