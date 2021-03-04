@@ -5,27 +5,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <title>Library</title>
+    <title>Document</title>
 </head>
 
 <body>
-    <div class="container">
-        <h1>Library</h1>
-        <button type="button" id="formToggler" class="button">Add a book</button>
-        <form id="form" hidden>
-            <input type="text" id="titleInput" class="input" />
-            <input type="text" id="authorInput" class="input" />
-            <input type="number" id="pageInput" class="input" />
-            <label>
-                <input type="checkbox" id="readCheckbox" />
-                Read?
-            </label>
-            <button class="button">Submit</button>
-        </form>
-        <div id="bookList"></div>
+
+    <form id='form'>
+        <input type="text" class="todo-input" placeholder="Name of book">
+        <input type="text" id="authorInput" class="input" placeholder="Author name" />
+        <input type="number" id="pageInput" class="input" placeholder="Page" />
+        <label>
+            <input type="checkbox" id="readCheckbox" />
+            Read?
+        </label>
+        <button class="todo-button" type="submit">
+            <i class="fa fa-plus-square"></i>
+        </button>
+    </form>
+
+    <div class="todo-container">
+        <ul class="todo-list">
+
+        </ul>
     </div>
-    <script src="./index.js"></script>
+    <script src="./app.js"></script>
 </body>
 
 </html>
