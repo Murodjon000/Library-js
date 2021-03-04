@@ -1,6 +1,6 @@
-const todoInput = document.querySelector('.todo-input')
-const todoButton = document.querySelector('.todo-button')
-const todoList = document.querySelector('.todo-list')
+const titleInput = document.querySelector('.titleInput')
+const bookButton = document.querySelector('.book-button')
+const bookList = document.querySelector('.book-list')
 
 const authorInput = document.getElementById('authorInput')
 const pageInput = document.getElementById('pageInput')
@@ -17,28 +17,28 @@ function Book(title = '', author = '', pages = '', read = false) {
 }
 
 
-todoButton.addEventListener('click', addTodo)
+bookButton.addEventListener('click', addBook)
 
 function createBookCard(book, index) {
     const bookDiv = document.createElement('div')
-    bookDiv.classList.add('todo')
+    bookDiv.classList.add('book')
     // To do list
     const newBook = document.createElement('li')
-    newBook.textContent = `Book Name: ${book.title} `
-    newBook.classList.add('todo-item')
+    newBook.textContent = `Book Name: ${book.book.title} `
+    newBook.classList.add('book-item')
 
     bookDiv.appendChild(newBook)
 
     const author = document.createElement('li')
-    author.textContent = `Author : ${book.author} `
-    author.classList.add('todo-item')
+    author.textContent = `Author : ${book.book.author} `
+    author.classList.add('book-item')
 
     bookDiv.appendChild(author)
 
 
     const page = document.createElement('li')
-    page.textContent = `Pages: ${book.pages} `
-    page.classList.add('todo-item')
+    page.textContent = `Pages: ${book.book.pages} `
+    page.classList.add('book-item')
 
     bookDiv.appendChild(page)
 
@@ -56,59 +56,46 @@ function createBookCard(book, index) {
     trashButton.classList.add('trash-btn')
     bookDiv.appendChild(trashButton)
     // Append to list
-    todoList.appendChild(bookDiv)
+    bookList.appendChild(bookDiv)
 
     completeButton.addEventListener('click', checkBox)
     trashButton.addEventListener('click', deleteBook)
 }
 
 function updateBooks() {
-    todoList.innerHTML = ''
+    bookList.innerHTML = ''
     myLibrary.forEach((book, index) => createBookCard(book, index))
 }
 
-function addTodo(e) {
+function addBook(e) {
     e.preventDefault()
     // To do DIV
-    if (myLibrary.some(({ book }) => book.title === todoInput.value)) {
+    if (myLibrary.some(({ book }) => book.title === titleInput.value)) {
         return
     }
 
     const book = new Book(
-        todoInput.value,
+        titleInput.value,
         authorInput.value,
         pageInput.value,
         readCheckbox.value
     )
 
-    myLibrary.push(({ book }))
+    myLibrary.push({ book })
     updateBooks()
     form.reset()
-
 }
 
 function deleteBook(e) {
     const item = e.target
-
-    let index = item.getAttribute('data-index');
-
-    if (item.classList.contains('trash-btn')) {
-        const todo = item.parentElement
-        todo.classList.add('fall')
-
-        todo.addEventListener('transitionend', function () {
-            console.log(myLibrary)
-            myLibrary = myLibrary.filter(function(value, i) {
-                return i != index
-            })
-            todo.remove()
-        })
-    }
-
+    const index = item.getAttribute('data-index');
+    myLibrary.splice(index, 1)
+    updateBooks()
 }
 
 function checkBox(e) {
-    let index = e.target.getAttribute('data-index');
+    const item = e.target
+    const index = item.getAttribute('data-index');
     book = myLibrary[index];
     book.read = !book.read
     updateBooks()
