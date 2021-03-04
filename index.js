@@ -19,7 +19,7 @@ function Book(title = '', author = '', pages = '', read = false) {
 
 todoButton.addEventListener('click', addTodo)
 
-function createBookCard(book) {
+function createBookCard(book, index) {
     const bookDiv = document.createElement('div')
     bookDiv.classList.add('todo')
     // To do list
@@ -44,12 +44,14 @@ function createBookCard(book) {
 
     //Check mark Button
     const completeButton = document.createElement('button')
+    completeButton.setAttribute('data-index', index);
     completeButton.innerText = book.read ? 'UnRead' : 'Read'
     completeButton.classList.add('complete-btn')
     bookDiv.appendChild(completeButton)
 
     // Trash button
     const trashButton = document.createElement('button')
+    trashButton.setAttribute('data-index', index);
     trashButton.innerHTML = '<i class = "fa fa-trash"></i>'
     trashButton.classList.add('trash-btn')
     bookDiv.appendChild(trashButton)
@@ -62,7 +64,7 @@ function createBookCard(book) {
 
 function updateBooks() {
     todoList.innerHTML = ''
-    myLibrary.forEach(({ book }) => createBookCard(book))
+    myLibrary.forEach((book, index) => createBookCard(book, index))
 }
 
 function addTodo(e) {
@@ -88,11 +90,17 @@ function addTodo(e) {
 function deleteBook(e) {
     const item = e.target
 
-    if (item.classList[0] === 'trash-btn') {
+    let index = item.getAttribute('data-index');
+
+    if (item.classList.contains('trash-btn')) {
         const todo = item.parentElement
         todo.classList.add('fall')
 
         todo.addEventListener('transitionend', function () {
+            console.log(myLibrary)
+            myLibrary = myLibrary.filter(function(value, i) {
+                return i != index
+            })
             todo.remove()
         })
     }
@@ -100,8 +108,8 @@ function deleteBook(e) {
 }
 
 function checkBox(e) {
-    const { title } = e.target.parentElement
-    const bookInd = myLibrary.findIndex(({ book }) => book.title === title)
-    myLibrary[bookInd].book.read = !myLibrary[bookInd].book.read
+    let index = e.target.getAttribute('data-index');
+    book = myLibrary[index];
+    book.read = !book.read
     updateBooks()
 }
