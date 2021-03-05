@@ -9,13 +9,19 @@
 - Run `git pull origin library`
 - On the terminal open up the live server, while in the 'Library app' directory:
 
-## Author
+## Authors
 
 👤 **Murodjon Tursunpulatov**
 
 - Github: [@murodjon000](https://github.com/murodjon000)
 - Twitter: [@MurodjonTursun5](https://twitter.com/MurodjonTursun5)
 - Linkedin: [@Murodjon Tursunpulatov](https://www.linkedin.com/in/murodjon-tursunpulatov-5189481b3/)
+
+👤 **Dipesh Bajgain**
+
+- GitHub: [@dipbazz](https://github.com/dipbazz)
+- Twitter: [@dipbazz](https://twitter.com/dipbazz)
+- LinkedIn: [Dipesh Bajgain](https://www.linkedin.com/in/dipbazz/)
 
 ## 🤝 Contributing
 
