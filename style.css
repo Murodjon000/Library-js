@@ -5,7 +5,7 @@
 }
 
 body {
-  background-image: linear-gradient(120deg,#f6d365,#fda085);
+  background-image: linear-gradient(120deg, #f6d365, #fda085);
   color: white;
   height: 100vh;
 }
@@ -45,7 +45,6 @@ form button:hover {
   justify-content: center;
 }
 
-
 .book-list {
   list-style: none;
   min-width: 30%;
@@ -66,7 +65,8 @@ form button:hover {
   flex: 1;
 }
 
-.trash-btn, .complete-btn {
+.trash-btn,
+.complete-btn {
   background-color: #ff6f47;
   font-size: 1rem;
   padding: 1rem;
@@ -80,7 +80,7 @@ form button:hover {
 }
 
 .book-item {
-  padding: 0rem 0.5rem;
+  padding: 0 0.5rem;
 }
 
 .fa-trash {
